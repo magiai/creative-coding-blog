@@ -1,0 +1,17 @@
+.article {
+   width: calc(100vw - var(--space--l));
+   /* display: grid;
+   justify-content: center; */
+   margin-bottom: var(--space--l);
+}
+
+.article, 
+.article > * {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--space--l);
+}
+
+.article > *:not(pre) {
+    max-width: 80ch;
+}
