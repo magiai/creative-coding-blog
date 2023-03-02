@@ -1,6 +1,7 @@
 import React, { createElement } from 'react'
 import { contentfulClient } from '../../../lib/contentful-client'
-import { IBlogPost } from '@components/interfaces/blog'
+import { IBlogPost } from '../../../interfaces/contentfulEntry'
+import { Iframe } from '@components/components/Iframe'
 import styles from './post.module.css'
 
 export default async function BlogPost({ params }: { params: {slug: string}}) {
@@ -8,6 +9,7 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
         content_type: 'blogPost',
         'fields.slug': params.slug 
     })
+
     const { title, iframeUrl, description } = items[0].fields
     let descriptionArray: Array<JSX.Element> = []
 
@@ -35,15 +37,9 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
             </header>
             <main>
                 <article className = { styles.article }>
-                    <iframe 
-                        height = "550" 
-                        width="100%"
-                        title = { title }
-                        src = { iframeUrl } 
-                        frameBorder="no" 
-                        scrolling="no"
-                        loading="lazy">
-                    </iframe>
+                    <header>intro</header>
+                    <Iframe title = { title } source = { iframeUrl }/>
+
                     { descriptionArray.map(content => {
                         return (
                             <>
