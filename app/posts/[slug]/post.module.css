@@ -1,5 +1,5 @@
 .article {
-   width: calc(100vw - var(--space--l));
+   width: calc(100% - var(--space--l));
    /* display: grid;
    justify-content: center; */
    margin-bottom: var(--space--l);

@@ -22,8 +22,8 @@ body {
   display: flex;
   flex-direction: column;
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.3) 2%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.3) 2%);
+    linear-gradient(rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%);
   background-size: 2.7rem 2.7rem;
   background-position: 0 0, 0.5rem 0, 0.5rem -0.5rem, 0 0.5rem;
 }
@@ -31,11 +31,15 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: var(--font-family--secondary);
   font-weight: bold;
-  color: var(--color--secondary);
-  text-align: center;
+}
+
+h2, h3, h4, h5 {
+  color: var(--color--orange);
 }
 
 h1 {
+  text-align: center;
+  color: var(--color--secondary);
   font-size: clamp(3.2rem, 1rem + 5vw, 6.4rem);
 }
 
@@ -45,14 +49,6 @@ h2 {
 
 h3 {
   font-size: clamp(2rem, 1rem + 1vw, 3.2rem);
-}
-
-h4 {
-  font-size: 3.2rem;
-}
-
-h5 {
-  font-size: 3.2rem;
 }
 
 iframe {
@@ -71,12 +67,20 @@ pre {
 
 pre::-webkit-scrollbar {
 	width: 1rem;
-	background-color: var(--color--secondary);
+	background-color: var(--color--mint--light);
 }
 
 pre::-webkit-scrollbar-thumb {
 	border-radius: var(--border-radius);
 	background-color: var(--color--orange);
+}
+
+.language-css .selector {
+  color: var(--color--magenta--dark);
+}
+
+.language-css .property {
+  color: var(--color--mint--dark);
 }
 
 a {
@@ -95,7 +99,7 @@ a {
     color: var(--color--primary);
   }
 
-  h1, h2, h3, h4, h5 {
+  h1 {
     color: var(--color--primary);
   }
 
@@ -103,11 +107,14 @@ a {
     color: var(--color--secondary);
     background-color: var(--color--primary);
   }
-}
 
-/* Set via JS or server-side post form submit */
-html[data-theme="light"] {
-  --theme: light;
+  .language-css .selector {
+    color: var(--color--magenta--light);
+  }
+  
+  .language-css .property {
+    color: var(--color--mint--light);
+  }
 }
 
 body:has(button.theme--light)  {
@@ -115,7 +122,7 @@ body:has(button.theme--light)  {
     color: var(--color--primary);
 }
 
-body:has(button.theme--light) h1, h2, h3, h4, h5  {
+body:has(button.theme--light) h1 {
     color: var(--color--primary);
 }
 
@@ -124,19 +131,10 @@ body:has(button.theme--light) pre {
   background-color: var(--color--primary);
 } 
 
-/* uncomment when style queries will be supported */
-/* @container style(--theme: light) {
-  body {
-    background-color: var(--color--secondary);
-    color: var(--color--primary);
-  }
+body:has(button.theme--light) .language-css .selector {
+  color: var(--color--magenta--light);
+}
 
-  h1, h2, h3, h4, h5 {
-    color: var(--color--primary);
-  }
-
-  pre {
-    color: var(--color--secondary);
-    background-color: var(--color--primary);
-  }
-} */
+body:has(button.theme--light) .language-css .property {
+  color: var(--color--mint--light);
+}

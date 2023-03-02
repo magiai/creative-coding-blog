@@ -21,7 +21,6 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
 
     description?.content?.map(texts => {
         texts?.content?.map(text => {
-            console.log(text)
             const content = assignToHtmlElement(text.value)
             descriptionArray.push(content) 
         })

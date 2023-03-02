@@ -3,14 +3,14 @@
 import React, { useState } from "react"
 
 export const ThemeButton = () => {
-    const [theme, setTheme] = useState<string>('dark')
+    const [theme, setTheme] = useState<string>('theme--dark')
 
     const handleThemeChange = () => {
-      let themeValue = theme === 'dark' ? 'light' : 'dark' 
+      let themeValue = theme === 'theme--dark' ? 'theme--light' : 'theme--dark' 
       setTheme(themeValue)
     }
 
     return (
-        <button className = { `theme--${theme}` } onClick = { handleThemeChange }> { theme }</button>
+        <button className = {theme} onClick = { handleThemeChange }>change theme</button>
     )
 }
