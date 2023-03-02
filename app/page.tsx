@@ -2,7 +2,7 @@ import { Inter } from '@next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import { contentfulClient } from '../lib/contentful-client'
-import { IBlogPostList } from '@components/interfaces/blog'
+import { IBlogPostList } from '@components/interfaces/contentfulEntry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +22,7 @@ export default async function Home() {
                     {
                         blogPostsList.map(blogPostListItem => {
                             const {slug, title, shortDescription} = blogPostListItem?.fields
+                            
                             return (
                                 <li key = { blogPostListItem?.sys?.id }>
                                     <Link href={`posts/${slug}`}>
