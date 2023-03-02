@@ -1,0 +1,33 @@
+:root {
+    font-size: 62.5%;
+    --font-family--primary: Georgia, 'Times New Roman', Times, serif;
+    --font-family--secondary: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --color--primary: rgb(93, 67, 223);
+    --color--secondary: rgb(236, 231, 220);
+    --color--blue--light: rgb(96, 213, 255);
+    --color--blue--dark: rgb(0, 0, 185);
+    --color--orange--light:rgb(255, 208, 194);
+    --color--orange: rgb(255, 130, 87);
+    --color--magenta--light: #FFCCFF;
+    --color--magenta--dark: #B300B3;
+    --color--mint--light: #B8FFF4;
+    --color--mint--dark: #007564;
+
+    --space--base: 0.5rem;
+    --space--xs: clamp(0.5rem, 0.1rem + 0.002vw , 1rem);
+    --space--s: clamp(1rem, 0.1rem + 0.001vw , 2rem);
+    --space--m: clamp(1.5rem, 0.1rem + 0.05vw , 3rem);
+    --space--l: clamp(2rem, 0.1rem + 0.03vw , 4rem);
+    
+    --border-radius: 0.5rem;
+}
+
+@supports(color: lch(30% 78 30)) {
+    :root {
+        --color--primary: lch(42% 89 300);
+        --color--secondary: lch(92% 6 87);
+        --color--blue--light: lch(80% 43 231);
+        --color--blue--dark: lch(18% 100 301);
+        --color--orange: lch(64% 71 48);
+    }
+}

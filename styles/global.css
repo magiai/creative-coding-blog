@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: var(--font-family--primary);
+  color: var(--color--secondary);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+	word-spacing: 0.16em;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color--primary);
+  display: flex;
+  flex-direction: column;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%);
+  background-size: 2.7rem 2.7rem;
+  background-position: 0 0, 0.5rem 0, 0.5rem -0.5rem, 0 0.5rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-family--secondary);
+  font-weight: bold;
+}
+
+h2, h3, h4, h5 {
+  color: var(--color--orange);
+}
+
+h1 {
+  text-align: center;
+  color: var(--color--secondary);
+  font-size: clamp(3.2rem, 1rem + 5vw, 6.4rem);
+}
+
+h2 {
+  font-size: clamp(2.3rem, 1rem + 3vw, 4.6rem);
+}
+
+h3 {
+  font-size: clamp(2rem, 1rem + 1vw, 3.2rem);
+}
+
+iframe {
+  display: flex;
+}
+
+pre {
+  font-size: 1.6rem;
+  color: var(--color--blue--dark);
+  background-color: var(--color--secondary);
+  border-radius: var(--border-radius);
+  padding: var(--space--m);
+  max-width: 100ch;
+  overflow-x: auto;
+}
+
+pre::-webkit-scrollbar {
+	width: 1rem;
+	background-color: var(--color--mint--light);
+}
+
+pre::-webkit-scrollbar-thumb {
+	border-radius: var(--border-radius);
+	background-color: var(--color--orange);
+}
+
+.language-css .selector {
+  color: var(--color--magenta--dark);
+}
+
+.language-css .property {
+  color: var(--color--mint--dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* User preference */
+@media (prefers-color-scheme: light) {
+  html {
+    --theme: light;
+  }
+  
+  body {
+    background-color: var(--color--secondary);
+    color: var(--color--primary);
+  }
+
+  h1 {
+    color: var(--color--primary);
+  }
+
+  pre {
+    color: var(--color--secondary);
+    background-color: var(--color--primary);
+  }
+
+  .language-css .selector {
+    color: var(--color--magenta--light);
+  }
+  
+  .language-css .property {
+    color: var(--color--mint--light);
+  }
+}
+
+body:has(button.theme--light)  {
+    background-color: var(--color--secondary);
+    color: var(--color--primary);
+}
+
+body:has(button.theme--light) h1 {
+    color: var(--color--primary);
+}
+
+body:has(button.theme--light) pre {
+  color: var(--color--secondary);
+  background-color: var(--color--primary);
+} 
+
+body:has(button.theme--light) .language-css .selector {
+  color: var(--color--magenta--light);
+}
+
+body:has(button.theme--light) .language-css .property {
+  color: var(--color--mint--light);
+}

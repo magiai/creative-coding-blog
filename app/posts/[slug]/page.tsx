@@ -1,6 +1,7 @@
 import React, { createElement } from 'react'
 import { contentfulClient } from '../../../lib/contentful-client'
 import { IBlogPost } from '@components/interfaces/blog'
+import styles from './post.module.css'
 
 export default async function BlogPost({ params }: { params: {slug: string}}) {
     const { items } = await contentfulClient.getEntries<IBlogPost>({ 
@@ -33,13 +34,14 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
                 <time dateTime="2023-02-23"></time>
             </header>
             <main>
-                <article>
+                <article className = { styles.article }>
                     <iframe 
-                        height = "500" 
+                        height = "550" 
                         width="100%"
                         title = { title }
                         src = { iframeUrl } 
                         frameBorder="no" 
+                        scrolling="no"
                         loading="lazy">
                     </iframe>
                     { descriptionArray.map(content => {

@@ -18,7 +18,7 @@ export default async function Home() {
                 <h1>Creative Coding</h1>
             </header>
             <main className={styles.main}>
-                <ul>
+                <ul className = { styles.postList }>
                     {
                         blogPostsList.map(blogPostListItem => {
                             const {slug, title, shortDescription} = blogPostListItem?.fields
