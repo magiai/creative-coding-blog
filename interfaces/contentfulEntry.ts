@@ -7,7 +7,9 @@ export interface IBlogPostList  {
 }
 
 export interface IBlogPost  {
-    iframeUrl: Contentful.EntryFields.Text,
     title: Contentful.EntryFields.Text,
+    shortDescription: Contentful.EntryFields.Text,
+    iframeUrl: Contentful.EntryFields.Text,
     description: Contentful.EntryFields.RichText,
+    cssClass: Contentful.EntryFields.Text,
 }

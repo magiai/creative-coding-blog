@@ -1,52 +1,43 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import { contentfulClient } from '../../../lib/contentful-client'
 import { IBlogPost } from '../../../interfaces/contentfulEntry'
 import { Iframe } from '@components/components/Iframe'
+import  Description from '@components/components/Description'
 import styles from './post.module.css'
+
 
 export default async function BlogPost({ params }: { params: {slug: string}}) {
     const { items } = await contentfulClient.getEntries<IBlogPost>({ 
         content_type: 'blogPost',
+        limit: 1,
+        include: 10,
         'fields.slug': params.slug 
     })
 
-    const { title, iframeUrl, description } = items[0].fields
-    let descriptionArray: Array<JSX.Element> = []
-
-    const assignToHtmlElement = (content: string) => {
-        const paragraph = createElement("p", {}, content)
-        const codeSnippet = <pre dangerouslySetInnerHTML={{__html: content}} />
-        let htmlContainer = content?.includes('class="language') ? codeSnippet : paragraph
-
-        return htmlContainer
-    }
-
-    description?.content?.map(texts => {
-        texts?.content?.map(text => {
-            const content = assignToHtmlElement(text.value)
-            descriptionArray.push(content) 
-        })
-        return descriptionArray
-    })
+    const { 
+        cssClass, 
+        title, 
+        shortDescription,
+        iframeUrl, 
+        description 
+    } = items[0].fields
 
     return (
         <>
-            <header>
-                <h1>{ title }</h1>
-                <time dateTime="2023-02-23"></time>
-            </header>
-            <main>
-                <article className = { styles.article }>
-                    <header>intro</header>
-                    <Iframe title = { title } source = { iframeUrl }/>
+            <main className={ cssClass }>
+                <header>
+                    <h1>{ title }</h1>
+                    <time dateTime="2023-02-23"></time>
+                </header>
 
-                    { descriptionArray.map(content => {
-                        return (
-                            <>
-                                {content}
-                            </>
-                        )
-                    }) }
+                <article className = { styles.article }>
+                    <header>{ shortDescription }</header>
+
+                    { iframeUrl &&
+                        <Iframe title = { title } source = { iframeUrl }/>
+                    }
+
+                    <Description description = { description } />
                 </article>
             </main>
         </>
