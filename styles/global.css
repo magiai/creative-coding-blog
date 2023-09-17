@@ -63,6 +63,8 @@ pre {
   padding: var(--space--m);
   max-width: 100ch;
   overflow-x: auto;
+  margin-top: var(--space--l);
+  margin-bottom: var(--space--l);
 }
 
 pre::-webkit-scrollbar {
@@ -137,4 +139,9 @@ body:has(button.theme--light) .language-css .selector {
 
 body:has(button.theme--light) .language-css .property {
   color: var(--color--mint--light);
+}
+
+.gsap-scroll {
+  /* background: linear-gradient(purple, white); */
+  /* color: aquamarine !important; */
 }
