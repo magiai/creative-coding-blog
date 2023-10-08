@@ -26,7 +26,13 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
         <>
             <main className={ cssClass }>
                 <header>
-                    <h1>{ title }</h1>
+                    <h1 className = { styles.postTitle } >
+                        <span 
+                            className = { styles.postTitleIntro }
+                            data-text="I smell">
+                                I smell
+                        </span>: { title }
+                    </h1>
                     <time dateTime="2023-02-23"></time>
                 </header>
 
