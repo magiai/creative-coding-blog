@@ -2,6 +2,7 @@ import React from 'react'
 import { contentfulClient } from '../../../lib/contentful-client'
 import { IBlogPost } from '../../../interfaces/contentfulEntry'
 import { Iframe } from '@components/components/Iframe'
+import { DecorativeHeading } from '@components/components/DecorativeHeading'
 import  Description from '@components/components/Description'
 import styles from './post.module.css'
 
@@ -26,13 +27,10 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
         <>
             <main className={ cssClass }>
                 <header>
-                    <h1 className = { styles.postTitle } >
-                        <span 
-                            className = { styles.postTitleIntro }
-                            data-text="I smell">
-                                I smell
-                        </span>: { title }
-                    </h1>
+                    <DecorativeHeading 
+                        title = { title }
+                        headingType = 'h1'
+                    />
                     <time dateTime="2023-02-23"></time>
                 </header>
 

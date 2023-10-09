@@ -1,6 +1,20 @@
 import Contentful from 'contentful'
 import { Document } from "@contentful/rich-text-types";
 
+export interface IAsset {
+    node: Contentful.Asset;
+}
+
+export interface IDecorativeHeading {
+    title: string;
+    headingType: string;
+    fontColour?: string; 
+}
+
+export interface IDescription {
+    description: Document;
+}
+
 export interface IIframe {
     title: string;
     source: string;
@@ -11,10 +25,6 @@ export interface IImage {
     alt: string; 
     height: number;
     width: number;
-}
-
-export interface IDescription {
-    description: Document;
 }
 
 export interface IRichTextNode {
@@ -49,6 +59,7 @@ export interface IRichTextNode {
     nodeType: Contentful.RichTextNodeType;
 }
 
-export interface IAsset {
-    node: Contentful.Asset;
+export interface ISvgText {
+    title: string,
+    fontColour?: string,
 }

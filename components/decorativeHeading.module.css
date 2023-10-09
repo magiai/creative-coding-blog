@@ -1,0 +1,12 @@
+.h1 {
+    position: relative;
+    color: transparent;
+}
+
+.svgText {
+    position: absolute;
+    width: 100%;
+    height: 130%;
+    top: 0px;
+    left: 0px;
+}

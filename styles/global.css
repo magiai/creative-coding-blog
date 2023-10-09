@@ -19,11 +19,11 @@ body {
     word-spacing: 0.16em;
     text-rendering: optimizeLegibility;
     background-color: var(--color--primary);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    place-items: center;
     background-image: 
-    linear-gradient(rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%);
+        linear-gradient(rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0) 98%, rgba(255, 130, 87, 0.2) 2%);
     background-size: 2.7rem 2.7rem;
     background-position: 0 0, 0.5rem 0, 0.5rem -0.5rem, 0 0.5rem;
 }
@@ -54,6 +54,10 @@ h2 {
 
 h3 {
     font-size: clamp(2rem, 1rem + 1vw, 3.2rem);
+}
+
+main {
+    max-width: 80ch;
 }
 
 iframe {
