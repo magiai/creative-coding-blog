@@ -58,6 +58,7 @@ h3 {
 
 main {
     max-width: 80ch;
+    min-width: 80ch;
 }
 
 iframe {

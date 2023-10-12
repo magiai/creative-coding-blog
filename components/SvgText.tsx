@@ -8,10 +8,18 @@ export const SvgText = ({
 }: ISvgText) => {
     let textElements = [];
     const prepareTextElements = () => {
-        for (let index = 1; index < 7; index++) {
-            const dxValue = `${index * 3}`
-            const dyValue = `${index * 3}`
-            const strokeValue = `rgb(${93 + 8 * index}, ${67 + 8 * index}, ${223 + 8 * index})`
+        let shadowLength = 8;
+
+        for (let index = 1; index < shadowLength; index++) {
+            const dxValue = `${20 - index * 3}`
+            const dyValue = `${20 - index * 3}`
+            //replace with useShadowColourCalculator with lch()
+            const strokeValue = `${index === shadowLength - 1 ? 
+                'rgb(255, 255, 255)' :
+                `rgb(${93 + 15 * index}, ${67 + 15 * index}, ${223 + 15 * index})`}
+                `
+            const strokeDasharrayValue =  `${index === shadowLength - 1 ? '2,1' : '.01,4'}`
+            const strokeWidthValue = `${index === shadowLength - 1 ? '1.5' : `${ 3 * index / 6 }`}`
             const text = 
                 <text
                     x="0%" y="70%" 
@@ -20,13 +28,13 @@ export const SvgText = ({
                     font-family="Trebuchet MS" 
                     font-size="5vw"
                     stroke = { strokeValue }
-                    stroke-width="3"
+                    stroke-width = { strokeWidthValue }
                     stroke-linecap="round"
-                    stroke-dasharray=".01,4"
+                    stroke-dasharray = { strokeDasharrayValue }
                     fill="transparent"
                     text-length="100%"
                 >
-                    I smell { title }
+                    { title }
                 </text>
             
             textElements.push(text);

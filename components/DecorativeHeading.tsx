@@ -18,7 +18,7 @@ export const DecorativeHeading = ({
                     </h2>
             break;
         default:
-            heading = <h1 className = { styles.h1 }>I smell { title }
+            heading = <h1 className = { styles.h1 }>I smell
                         <SvgText title = { title } />
                     </h1>
       }
