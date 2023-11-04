@@ -15,7 +15,7 @@ export default async function Home() {
     return (
         <>
             <header>
-                <h1>Creative Coding</h1>
+                <h1>I smell</h1>
             </header>
             <main className={styles.main}>
                 <ul className = { styles.postList }>
