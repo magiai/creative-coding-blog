@@ -25,14 +25,14 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
 
     return (
         <>
+            <header className = { styles.postHeader }>
+                <DecorativeHeading 
+                    title = { title }
+                    headingType = 'h1'
+                />
+                <time dateTime="2023-02-23"></time>
+            </header>
             <main className={ cssClass }>
-                <header>
-                    <DecorativeHeading 
-                        title = { title }
-                        headingType = 'h1'
-                    />
-                    <time dateTime="2023-02-23"></time>
-                </header>
 
                 <article className = { styles.article }>
                     <header>{ shortDescription }</header>
