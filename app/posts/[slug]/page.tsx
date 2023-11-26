@@ -18,6 +18,8 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
     const { 
         cssClass, 
         title, 
+        titleFirstLayerColor,
+        titleLastLayerColor,
         shortDescription,
         iframeUrl, 
         description 
@@ -29,6 +31,8 @@ export default async function BlogPost({ params }: { params: {slug: string}}) {
                 <DecorativeHeading 
                     title = { title }
                     headingType = 'h1'
+                    firstLayerColor = { titleLastLayerColor } 
+                    lastLayerColor = { titleFirstLayerColor } 
                 />
                 <time dateTime="2023-02-23"></time>
             </header>

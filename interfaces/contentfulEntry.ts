@@ -12,4 +12,6 @@ export interface IBlogPost  {
     iframeUrl: Contentful.EntryFields.Text,
     description: Contentful.EntryFields.RichText,
     cssClass: Contentful.EntryFields.Text,
+    titleFirstLayerColor?: Contentful.EntryFields.Text,
+    titleLastLayerColor?: Contentful.EntryFields.Text,
 }
