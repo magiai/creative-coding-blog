@@ -11,3 +11,7 @@
   gap: var(--space--m);
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 25ch), 1fr));
 }
+
+.header {
+  width: 100%;
+}

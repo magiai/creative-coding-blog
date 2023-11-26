@@ -1,39 +1,40 @@
 'use client'
 import { ISvgText } from '../interfaces/post'
 import styles from './decorativeHeading.module.css'
+import '../styles/custom-font.css';
 import { useLchColorTransitionCalculator } from '../app/hooks/useLchColorTransitionCalculator';
 
 export const SvgText = ({
     title,
-    fontColour
+    firstLayerColor,
+    lastLayerColor,
 }: ISvgText) => {
-    let textElements = [];
+    let textElements: SVGTextElement[] = [];
     const prepareTextElements = () => {
         let shadowLength = 8;
-        const firstLayerColor = 'lch(1% 32 250)';
-        const lastLayerColor = 'lch(84% 132 180)';
-        const colourValues = useLchColorTransitionCalculator(firstLayerColor, lastLayerColor, shadowLength);
+        const firstColor = firstLayerColor ? firstLayerColor : 'lch(76% 41 306)';
+        const lastColor = lastLayerColor ? lastLayerColor : 'lch(86% 22 186)';
+        const colourValues = useLchColorTransitionCalculator(firstColor, lastColor, shadowLength);
 
-        for (let index = 1; index < shadowLength; index++) {
+        for (let index = 1; index <= shadowLength; index++) {
             const dxValue = `${20 - index * 3}`
             const dyValue = `${20 - index * 3}`
 
-            const strokeValue = colourValues[index];
-            const strokeDasharrayValue =  `${index === shadowLength - 1 ? '2,1' : '.01,4'}`
-            const strokeWidthValue = `${index === shadowLength - 1 ? '1.5' : `${ 3 * index / 6 }`}`
+            const strokeValue = colourValues[index - 1];
+            const strokeDasharrayValue =  `${index === shadowLength ? '.2,2' : '.01,4'}`
+            const strokeWidthValue = `${index === shadowLength ? '.2' : 0.025 * index}`
             const text = 
                 <text
-                    x="0%" y="70%" 
+                    x="20%" y="70%" 
                     dx= { dxValue } 
                     dy = { dyValue } 
-                    //TODO replace font values with values fron css variables
-                    font-family="Trebuchet MS" 
-                    font-size="5vw"
+                    fontFamily="Glass Antiqua" 
+                    fontSize="7vw"
                     stroke = { strokeValue }
-                    stroke-width = { strokeWidthValue }
-                    stroke-linecap="round"
-                    stroke-dasharray = { strokeDasharrayValue }
-                    fill="transparent"
+                    strokeWidth = { strokeWidthValue }
+                    strokeLinecap="round"
+                    strokeDasharray = { strokeDasharrayValue }
+                    fill= 'lch(42% 89 300)'
                     text-length="100%"
                 >
                     { title }

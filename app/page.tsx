@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import { contentfulClient } from '../lib/contentful-client'
 import { IBlogPostList } from '@components/interfaces/contentfulEntry'
+import { DecorativeHeading } from '@components/components/DecorativeHeading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,11 @@ export default async function Home() {
 
     return (
         <>
-            <header>
-                <h1>I smell</h1>
+            <header className = { styles.header }>
+                <DecorativeHeading 
+                    title = { 'I Spy Fantasy' }
+                    headingType = 'h1'
+                />  
             </header>
             <main className={styles.main}>
                 <ul className = { styles.postList }>

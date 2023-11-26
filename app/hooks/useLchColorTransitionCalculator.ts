@@ -30,9 +30,9 @@ export const useLchColorTransitionCalculator = (
     
     const prepareTransitionedLchValues = () => {
         const lchValuesDifferences =  calculateLchValuesIncrementalDifferences();
-        let newLchValues = [];
+        let newLchValues = [firstColor, lastColor];
 
-        for (let color = 0; color < numberOfColors; color++) {
+        for (let color = 1; color < numberOfColors - 1; color++) {
             let singleLchValues = [];
             
             for (let index = 0; index < numberOfLchValues; index++) {
@@ -40,7 +40,8 @@ export const useLchColorTransitionCalculator = (
                 singleLchValues.push(singleLchValue);
             }
     
-            newLchValues.push(`lch(${singleLchValues[0]}%, ${singleLchValues[1]}%, ${singleLchValues[2]})`)
+            const calculatedLchValue = `lch(${singleLchValues[0]}%, ${singleLchValues[1]}%, ${singleLchValues[2]})`
+            newLchValues.splice(-1, 0, calculatedLchValue)
         }
 
         return newLchValues

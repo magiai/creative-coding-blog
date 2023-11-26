@@ -7,19 +7,26 @@ import styles from './decorativeHeading.module.css'
 export const DecorativeHeading = ({
     title,
     headingType,
-    fontColour
+    firstLayerColor,
+    lastLayerColor,
 }: IDecorativeHeading) => {
     let heading;
 
     switch (headingType) {
         case 'h2': 
             heading = <h2>I smell { title } 
-                        <SvgText title = { title } />
+                        <SvgText 
+                            title = { title } 
+                            firstLayerColor = { firstLayerColor } 
+                            lastLayerColor = { lastLayerColor } />
                     </h2>
             break;
         default:
-            heading = <h1 className = { styles.h1 }>I smell
-                        <SvgText title = { title } />
+            heading = <h1 className = { styles.h1 }>
+                        <SvgText 
+                             title = { title } 
+                             firstLayerColor = { firstLayerColor } 
+                             lastLayerColor = { lastLayerColor } />
                     </h1>
       }
     return (

@@ -8,7 +8,8 @@ export interface IAsset {
 export interface IDecorativeHeading {
     title: string;
     headingType: string;
-    fontColour?: string; 
+    firstLayerColor?: string,
+    lastLayerColor?: string,
 }
 
 export interface IDescription {
@@ -61,5 +62,6 @@ export interface IRichTextNode {
 
 export interface ISvgText {
     title: string,
-    fontColour?: string,
+    firstLayerColor?: string,
+    lastLayerColor?: string,
 }
